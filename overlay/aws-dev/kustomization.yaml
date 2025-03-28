@@ -15,8 +15,9 @@ patches:
       name: istory-app-deploy
 
 labels:
-  environment: development
-  app: istory
+  - pairs:
+      environment: development
+      app: istory
 
 images:
   - name: dangtong76/istory
