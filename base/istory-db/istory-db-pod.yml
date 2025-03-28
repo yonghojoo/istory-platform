@@ -11,8 +11,6 @@ spec:
       envFrom:
         - secretRef:
             name: istory-db-secret
-        - configMapRef:
-            name: istory-db-config
       ports:
         - containerPort: 3306
           name: mysql
