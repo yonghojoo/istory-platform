@@ -30,7 +30,7 @@ spec:
                   key: MYSQL_PASSWORD
           command: ['sh',
                     '-c',
-                    'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h istory-db-lb --port=3306 --protocol=TCP; do echo waiting for database; sleep 2; done;']
+                    'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h istory-db-lb; do echo waiting for database; sleep 2; done;']
       containers:
         - name: istory
           image: dangtong/istory:12
@@ -50,7 +50,7 @@ spec:
                   key: MYSQL_USER
           readinessProbe:
             httpGet:
-              path: /actuator
+              path: /
               port: 8080
             initialDelaySeconds: 30
             timeoutSeconds: 3
