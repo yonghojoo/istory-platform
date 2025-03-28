@@ -15,13 +15,12 @@ patches:
       name: istory-app-deploy
 
 labels:
-  - pairs:
-      environment: development
-      app: istory
+  environment: development
+  app: istory
 
 images:
   - name: dangtong76/istory
-    newTag: ${{ env.DOCKER_TAG }}
+    newTag: latest
 
 secretGenerator:
   - name: istory-app-secret

@@ -1,6 +1,5 @@
 resources:
   - ../../base/istory-app
-  - ../../base/istory-db
 
 namespace: istory-prod
 
@@ -21,7 +20,7 @@ labels:
 
 images:
   - name: dangtong76/istory
-    newTag: "latest"
+    newTag: latest
 
 secretGenerator:
   - name: istory-app-secret
