@@ -18,6 +18,11 @@ spec:
         - name: check-mysql-ready
           image: mysql:8.0
           env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: istory-db-secret
+                  key: MYSQL_USER
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
