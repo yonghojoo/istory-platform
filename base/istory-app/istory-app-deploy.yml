@@ -33,7 +33,7 @@ spec:
                     'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h istory-db-lb; do echo waiting for database; sleep 2; done;']
       containers:
         - name: istory
-          image: dangtong/istory:12
+          image: dangtong/istory:latest
           envFrom:
             - configMapRef:
                 name: istory-app-config
@@ -52,11 +52,11 @@ spec:
             httpGet:
               path: /
               port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             timeoutSeconds: 3
             successThreshold: 2
             failureThreshold: 3
-            periodSeconds: 10
+            periodSeconds: 20
           ports:
             - containerPort:  3306
               name: istory
