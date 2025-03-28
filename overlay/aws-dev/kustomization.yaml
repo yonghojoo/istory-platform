@@ -23,10 +23,5 @@ images:
   - name: dangtong76/istory
     newTag: latest
 
-secretGenerator:
-  - name: istory-app-secret
-    envs:
-      - .env.secret
-
 generatorOptions:
   disableNameSuffixHash: true
