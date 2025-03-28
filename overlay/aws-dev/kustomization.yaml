@@ -2,6 +2,8 @@ resources:
   - ../../base/istory-app
   - ../../base/istory-db
 
+namespace: istory-dev
+
 patches:
   - path: patch-lb-annotations.yaml
     target:
@@ -11,6 +13,11 @@ patches:
     target:
       kind: Deployment
       name: istory-app-deploy
+
+commonLabels:
+  environment: development
+  app: istory
+
 images:
   - name: dangtong76/istory
     newTag: ${{ env.DOCKER_TAG }}
@@ -19,5 +26,6 @@ secretGenerator:
   - name: istory-app-secret
     envs:
       - .env.secret # MYSQL_USER, MYSQL_PASSWORD from Github Action Secrets
+
 generatorOptions:
   disableNameSuffixHash: true
