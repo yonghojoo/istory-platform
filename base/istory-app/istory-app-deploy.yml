@@ -25,7 +25,7 @@ spec:
                   key: MYSQL_PASSWORD
           command: ['sh',
                     '-c',
-                    'until mysqladmin ping -u dangtong -p${MYSQL_PASSWORD} -h mysql-svc.default; do echo waiting for database; sleep 2; done;']
+                    'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h mysql-svc; do echo waiting for database; sleep 2; done;']
       containers:
         - name: istory
           image: dangtong/istory:12
