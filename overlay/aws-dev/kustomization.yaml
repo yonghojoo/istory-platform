@@ -14,11 +14,6 @@ patches:
       kind: Deployment
       name: istory-app-deploy
 
-labels:
-  - pairs:
-      environment: development
-      app: istory
-
 images:
   - name: dangtong76/istory
     newTag: latest
