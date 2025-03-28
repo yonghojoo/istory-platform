@@ -1,6 +1,8 @@
 resources:
   - ../../base/istory-app
+  - ../../base/istory-db
 
+namespace: istory-prod
 
 patches:
   - path: patch-lb-annotations.yaml
@@ -11,9 +13,20 @@ patches:
     target:
       kind: Deployment
       name: istory-app-deploy
+
+labels:
+  - pairs:
+      environment: production
+      app: istory
+
+images:
+  - name: dangtong76/istory
+    newTag: "latest"
+
 secretGenerator:
   - name: istory-app-secret
     envs:
-      - .env.secret # MYSQL_USER, MYSQL_PASSWORD from Github Action Secrets
+      - .env.secret
+
 generatorOptions:
   disableNameSuffixHash: true

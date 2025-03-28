@@ -14,9 +14,10 @@ patches:
       kind: Deployment
       name: istory-app-deploy
 
-commonLabels:
-  environment: development
-  app: istory
+labels:
+  - pairs:
+      environment: development
+      app: istory
 
 images:
   - name: dangtong76/istory
@@ -25,7 +26,7 @@ images:
 secretGenerator:
   - name: istory-app-secret
     envs:
-      - .env.secret # MYSQL_USER, MYSQL_PASSWORD from Github Action Secrets
+      - .env.secret
 
 generatorOptions:
   disableNameSuffixHash: true
